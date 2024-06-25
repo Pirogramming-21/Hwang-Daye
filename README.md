@@ -1,1 +1,1 @@
-git_tutorial
+리드미
