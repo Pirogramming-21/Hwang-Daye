@@ -88,10 +88,13 @@
 
         #header{
             text-align: left;
+            position: relative;
         }
 
         #header-hamburger{
-            margin-top: 18px;
+            position: absolute;
+            top: 18px;
+            left: -10px;
             padding: 10px;
             display: inline-block;
             background: none;
@@ -99,19 +102,32 @@
             cursor: pointer;
         }
 
-        #header-hamburger:hover{
+        #header-hamburger:hover::before{
+            position: absolute;
+            content: '';
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
             background-color: var(--color_option_bg);
-            border-radius: 60;
+            border-radius: 50;
+            padding: 9px;
+        }
+
+        #header-hamburger:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
         }
 
         #header-hamburger > div {
-            background-image:url(./sp_main.png);
-            width: 26px;
-            height: 26px;
+            background-image: url(./sp_main.png);
+            width: 36;
+            height: 36;
             background-repeat: no-repeat;
             background-size: 424px 416px;
-            background-position: -79px -280px;
-        }
+            background-position: -73px -277px;
+            }
 
         #main{
             height: 2000px;
@@ -121,7 +137,7 @@
 <body>
     <div id ="wrap">
         <div id ="wrap-center">
-            <div id ="header"></div>
+            <div id ="header">
                 <button id ="header-hamburger">
                     <div></div>
                 </button>
@@ -129,10 +145,7 @@
             <div id ="search"></div>
             <div id ="sav"></div>
             <div id ="main"></div>
-
-
-
-
+            </div>
         </div>
     </div>
 </body>
