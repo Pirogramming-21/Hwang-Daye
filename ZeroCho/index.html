@@ -228,6 +228,10 @@
                     border: none;
                     outline: none;
                 }
+                #search > form:hover{
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
+
+                }
 
                 #search > form a{
                     display: inline-block;
@@ -235,10 +239,6 @@
                     height: 100%;
                     padding: 17px;
                     margin-right: 12px;
-                }
-                #search > form:hover{
-                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
-
                 }
                 #search > form svg {
                     width: 24px;
@@ -251,8 +251,8 @@
                     margin-right: 12px;
                     height: 100%;
                     padding-left: 10px;
-                    justify-content: center;
-                    align-items: center;
+                    justify-content: flex-end;
+                    align-items: stretch;
                     position: relative;
                 }
                 #search-svg::after{
@@ -299,7 +299,7 @@
                 }
                 
                 #search-keyboard::before{
-                    content: "";
+                    content: '';
                     display: block;
                     background-image: url(./sp_main.png);
                     background-size: 422px 405px;
@@ -313,7 +313,7 @@
                 }
 
                 #search-recent::before{
-                    content: "";
+                    content: '';
                     display: block;
                     background-image: url(./sp_main.png);
                     background-size: 422px 405px;
@@ -525,8 +525,81 @@
                     </li>
                 </ul>
             </nav>
-            </div>
-            <div id ="main"></div>
+            <style>
+                #main{
+                    display: flex;
+                    margin-top: 62px;
+                }
+                #main-left{
+                    width: 830px;
+                    margin-right:30px;
+                }
+                #main-right{
+                    width: 420px;
+                }
+                #main-left-ad, #main-right-ad{
+                    background-color: gray;
+                }
+                aside[id$=ad] { 
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                }
+                #main-left-ad{
+                    height: 130px ;
+                }
+                section[id^=main]{
+                    box-shadow: 0 0 0 1px#e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04);
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                }
+                #main-newstand{
+                    height: 426px;
+                }
+                #main-shopping{
+                    height: 560px;
+                }
+
+                #main-login{
+                    height:240px;
+                }
+                #main-right-ad{
+                    height:240px;
+                }
+                .main-weather-and-stock{
+                    padding: 0 18px;
+                }
+                .main-weather-and-stock > header{
+                    height: 52px;
+                    padding: 6px 0;
+                }
+                .main-weather-and-stock > div {
+                    border-top:1px solid var(--color_border_in);
+                }
+                #main-weather{
+                    height: 236px;
+                }
+                #main-stock{
+                    height:236px;
+                }
+            </style>
+            <main id ="main">
+                <div id="main-left">
+                    <aside id ="main-left-ad"></aside>
+                    <section id="main-newstand"></section>
+                    <section id="main-shopping"></section>
+                </div>
+                <div id="main-right"></div>
+                    <section id="main-login"></section>
+                    <aside id="main-right-ad"></aside>
+                    <section id="main-weather" class="weather-and-stock">
+                        <header>날씨</header>
+                        <div></div>
+                    </section>
+                    <section id="main-stock" class="main-weather-and-stock">
+                        <header>증시</header>
+                        <div></div>
+                    </section>
+            </main>
         </div>
     </div>
 </body>
