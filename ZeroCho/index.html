@@ -132,6 +132,77 @@
             background-position: -73px -277px;
             }
 
+        #header-naverpay{
+            position: absolute;
+            top: 18px;
+            right: 42px;
+            padding: 10px;
+            display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        #header-naverpay:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0px;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: var(--color_option_bg);
+            border-radius: 50;
+            padding: 9px;
+        }
+
+        #header-naverpay > div {
+            background-image: url(./sp_main.png);
+            width: 36px;
+            height: 50;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-size: 370px 423px;
+            background-position: -8px -362px;
+            }
+
+
+        #header-notice{
+            position: absolute;
+            top: 18px;
+            right: -10px;
+            padding: 10px;
+            display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        #header-notice:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0px;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: var(--color_option_bg);
+            border-radius: 50;
+            padding: 9px;
+        }
+
+        #header-notice > div {
+            background-image: url(./sp_main.png);
+            width: 36px;
+            height: 50;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-size: 437px 420px;
+            background-position: -72px -360px;
+        }
+
         #main{
             height: 2000px;
         }
@@ -153,6 +224,18 @@
                     <!-- ::before -->
                     <div></div>
                     <span class ='blind'>확장 영역</span>
+                    <!-- ::after -->
+                </button>
+                <button id ="header-naverpay">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class ='blind'>네이버 페이</span>
+                    <!-- ::after -->
+                </button>
+                <button id ="header-notice">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class ='blind'>알림ㅁ</span>
                     <!-- ::after -->
                 </button>
 
