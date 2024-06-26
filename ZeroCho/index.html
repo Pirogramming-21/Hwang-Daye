@@ -75,8 +75,11 @@
         }
 
         body,html,form {
+            font-size: 10.5px;
+            line-height:10.5px;
             margin: 0;
             padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Malgun gothic', "맑은 고딕"
         }
 
         #wrap {
@@ -276,7 +279,7 @@
                 }
 
                 #search-input:focus::placeholder{
-                    color: e 4em 4em 4px;;
+                    color: 4em 4em 4px;;
                 }
                  
                 #search-right{
@@ -365,8 +368,22 @@
     
                 #nav a{
                     text-decoration: none;
+                    text-align: center;
                 }
 
+                #nav a div{
+                    width: 44px;
+                    height: 44px;
+                }
+                #nav a div::after{
+                    content: '';
+                    background-image: url(./sp_main.png);
+                    background-size: 422px 405px;
+                    background-position: -250px -90px;
+                    background-repeat: no-repeat;
+                    width: 44px;
+                    height: 44px;
+                }
                 #nav a:visited{
                     color:black;
                 }
@@ -379,12 +396,67 @@
                 #nav li:nth-of-type(1){
                     margin-left: 0;
                 }
-                
+
                 #nav li:nth-of-type(2){
 
                 }
             </style>
-            <div id ="sav"></div>
+            <div id ="nav">
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>메일</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>카페</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>블로그</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>쇼핑</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>뉴스</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>증권</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>부동산</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span>웹툰</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div></div>
+                        <span class="blind">더보기</span>
+                    </a>
+                </li>
+            </div>
             <div id ="main"></div>
             </div>
         </div>
