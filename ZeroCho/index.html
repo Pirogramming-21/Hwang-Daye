@@ -70,7 +70,9 @@
             --color_dic: #031f5f;
             --color_dic_rgb: 3, 31, 95;
         }
-
+        *{
+            box-sizing: border-box;
+        }
         body,html{
             margin: 0;
             padding: 0;
@@ -90,19 +92,17 @@
             text-align: left;
             position: relative;
         }
-
-        #header-hamburger{
+        #header-hamburger, #header-notice, #header-naverpay{
             position: absolute;
             top: 18px;
-            left: -10px;
             padding: 10px;
             display: inline-block;
             background: none;
             border: none;
             cursor: pointer;
         }
-
-        #header-hamburger:hover::before{
+        
+        #header-hamburger:hover::before, #header-notice:hover::before,#header-naverpay:hover::before{
             position: absolute;
             content: '';
             z-index: 0px;
@@ -114,14 +114,7 @@
             border-radius: 50;
             padding: 9px;
         }
-
-        #header-hamburger:hover > div{
-            position: relative;
-            left: 1px;
-            top: 1px;
-        }
-
-        #header-hamburger > div {
+        #header-hamburger > div, #header-notice > div,#header-naverpay > div {
             background-image: url(./sp_main.png);
             width: 36px;
             height: 36px;
@@ -130,76 +123,45 @@
             background-repeat: no-repeat;
             background-size: 424px 416px;
             background-position: -73px -277px;
+        }
+
+
+        #header-hamburger{
+            left: -10px;
+        }
+
+
+            
+
+        #header-hamburger:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+
+        #header-hamburger > div {
+            background-position: -73px -277px;
             }
 
         #header-naverpay{
-            position: absolute;
-            top: 18px;
             right: 42px;
-            padding: 10px;
-            display: inline-block;
-            background: none;
-            border: none;
-            cursor: pointer;
+            padding:10px 8px;
         }
 
-        #header-naverpay:hover::before{
-            position: absolute;
-            content: '';
-            z-index: 0px;
-            left: 1px;
-            top: 1px;
-            width: 44px;
-            height: 44px;
-            background-color: var(--color_option_bg);
-            border-radius: 50;
-            padding: 9px;
-        }
+       
 
         #header-naverpay > div {
-            background-image: url(./sp_main.png);
             width: 36px;
-            height: 50;
-            position: relative;
-            z-index: 1;
-            background-repeat: no-repeat;
-            background-size: 370px 423px;
             background-position: -8px -362px;
             }
 
 
         #header-notice{
-            position: absolute;
-            top: 18px;
             right: -10px;
-            padding: 10px;
-            display: inline-block;
-            background: none;
-            border: none;
-            cursor: pointer;
         }
 
-        #header-notice:hover::before{
-            position: absolute;
-            content: '';
-            z-index: 0px;
-            left: 1px;
-            top: 1px;
-            width: 44px;
-            height: 44px;
-            background-color: var(--color_option_bg);
-            border-radius: 50;
-            padding: 9px;
-        }
 
         #header-notice > div {
-            background-image: url(./sp_main.png);
-            width: 36px;
-            height: 50;
-            position: relative;
-            z-index: 1;
-            background-repeat: no-repeat;
-            background-size: 437px 420px;
             background-position: -72px -360px;
         }
 
