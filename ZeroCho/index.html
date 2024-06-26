@@ -85,7 +85,6 @@
 
         #wrap-center{
             width: 1280px;
-            background-color: yellow;
             display: inline-block;
         }
 
@@ -96,7 +95,7 @@
         }
         #header-hamburger, #header-notice, #header-naverpay{
             position: absolute;
-            top: 18px;
+            top: 5px;
             padding: 10px;
             display: inline-block;
             background: none;
@@ -104,17 +103,17 @@
             cursor: pointer;
         }
         
-        #header-hamburger:hover::before, #header-notice:hover::before,#header-naverpay:hover::before{
+        #header-hamburger:hover::before, #header-notice:hover::before, #header-naverpay:hover::before{
             position: absolute;
             content: '';
-            z-index: 0px;
+            z-index: 0;
             left: 1px;
             top: 1px;
             width: 44px;
             height: 44px;
             background-color: var(--color_option_bg);
             border-radius: 50;
-            padding: 9px;
+            padding: 1px;
         }
         #header-hamburger > div, #header-notice > div,#header-naverpay > div {
             background-image: url(./sp_main.png);
@@ -207,7 +206,7 @@
             </div>
             <style>
                 #serch > form {
-                    display: inline-block;
+                    display: inline-flex;
                     width: 708px;
                     height: 60px;
                     border: 1px solid #03c75a;
@@ -237,11 +236,13 @@
                 }
                 
                 #search-svg {
-                    display: inline-block;
+                    display: inline-flex;
                     width: 68px;
                     margin-right: 12px;
                     height: 100%;
                     padding-left: 10px;
+                    justify-content: center;
+                    align-items: center;
                 }
                 #search-svg svg {
                     width: 24px;
@@ -257,8 +258,17 @@
                     outline:none;
                 }
                 #search-right{
-                    display: inline-block;
+                    display: flex;
+                    flex: 1;
+                    align-items: stetch;
+                    justify-content: flex-end;
                 }
+                #search-keyboard, #search-recent, #search-button{
+                    background: transparent;
+                    border:none;
+                    cursor:pointer;
+                }
+                
                 #search-keyboard::before{
                     content: "";
                     display: block;
@@ -290,7 +300,7 @@
                     width: 25px;
                     height: 15px;
                 }
-                
+
             </style>
 
             <div id ="search">
