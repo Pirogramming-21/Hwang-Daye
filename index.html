@@ -105,6 +105,7 @@
         #header-hamburger:hover::before{
             position: absolute;
             content: '';
+            z-index: 0px;
             left: 1px;
             top: 1px;
             width: 44px;
@@ -122,8 +123,10 @@
 
         #header-hamburger > div {
             background-image: url(./sp_main.png);
-            width: 36;
-            height: 36;
+            width: 36px;
+            height: 36px;
+            position: relative;
+            z-index: 1;
             background-repeat: no-repeat;
             background-size: 424px 416px;
             background-position: -73px -277px;
@@ -132,6 +135,14 @@
         #main{
             height: 2000px;
         }
+        .blind{
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -139,7 +150,10 @@
         <div id ="wrap-center">
             <div id ="header">
                 <button id ="header-hamburger">
+                    <!-- ::before -->
                     <div></div>
+                    <span class ='blind'>확장 영역</span>
+                    <!-- ::after -->
                 </button>
 
             <div id ="search"></div>
