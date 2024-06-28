@@ -39,7 +39,7 @@
 .inter-profile--pic {
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    border-radius: 100%;
     overflow: hidden;
     justify-items: left;
 }
