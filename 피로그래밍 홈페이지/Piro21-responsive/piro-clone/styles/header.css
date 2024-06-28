@@ -1,36 +1,44 @@
-body{
+body {
     background-color: black;
-    color:white;
-    font-family: "Nexon", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-}
-
-main{
+    color: white;
+  }
+  
+  main {
     min-height: 100vh;
-    background-color: gray;
-}
-#main-header{
+    background-color: black;
+  }
+  
+  #main-header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: var(--header-height);
-}
-.main-header--container{
-    width:min(100%, 1200px);
+  }
+  .main-header--container {
+    width: min(100%, 1200px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-}
-.main-header--container > ul {
-    display:flex;
+  }
+  .main-header--container > ul {
+    display: flex;
     align-items: center;
     font-size: 1.8rem;
-    gap:20px;
+    gap: 20px;
+  }
+  .main-header--container > ul > li:hover {
+    color: var(--green);
+  }
 
+.main-header--container > ul {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    gap: 20px;
+    list-style: none; 
 }
-.main-header--container > ul > li:hover{
+
+.main-header--container > ul > li:hover > a {
     color: var(--green);
 }
-
-
-
