@@ -53,3 +53,12 @@
     padding-top: var(--gutter);
     line-height: 2rem;
 }
+
+.inter-none--major {
+    background: var(--red);
+}
+.inter-profile--oneline{
+    font-size: var(--body1);
+    padding-top: var(--gutter);
+    line-height: 2rem;
+}
