@@ -16,6 +16,7 @@ while count <31:
         count += 1
         print("PlayerA:", count)
         if count >= 31:
+            print("playerB wins!")
             exit()
 
     while True:
@@ -34,4 +35,5 @@ while count <31:
         print("playerB:",count)
     
         if count >=31:
+            print("Player A wins!")
             exit()
