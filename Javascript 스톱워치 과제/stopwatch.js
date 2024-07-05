@@ -28,8 +28,7 @@ function resetClock() {
     stopClock();
     stopwatch.innerText = "00:00";
     time = 0;
-    lapRecords = []; /
-    updateLapTimes();
+    
 }
 
 function getTimeFormatString() {
