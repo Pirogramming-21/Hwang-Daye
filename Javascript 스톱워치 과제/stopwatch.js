@@ -2,6 +2,7 @@ let timerId;
 let time = 0; 
 const stopwatch = document.getElementById("stopwatch");
 const lapTimes = document.getElementById("lapTimes");
+const selectAllCheckbox = document.getElementById("selectAll");
 let sec, millisec;
 let lapRecords = []; 
 
@@ -58,6 +59,9 @@ function updateLapTimes() {
         li.prepend(checkbox);
         lapTimes.appendChild(li);
     });
+
+    // 전체 선택 체크박스 상태 초기화
+    selectAllCheckbox.checked = false;
 }
 
 function deleteSelectedLaps() {
@@ -76,5 +80,28 @@ function deleteSelectedLaps() {
     });
 
     updateLapTimes();
+}
+
+function deleteAllLaps() {
+    lapRecords = [];
+    updateLapTimes();
+}
+
+function handleDeleteLaps() {
+    const checkboxes = lapTimes.querySelectorAll('input[type="checkbox"]:checked');
+    if (checkboxes.length > 0) {
+        deleteSelectedLaps();
+    } else {
+        deleteAllLaps();
+    }
+}
+
+function toggleSelectAll() {
+    const checkboxes = lapTimes.querySelectorAll('input[type="checkbox"]');
+    const isChecked = selectAllCheckbox.checked;
+
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = isChecked;
+    });
 }
 
