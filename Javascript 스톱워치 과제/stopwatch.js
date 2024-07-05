@@ -28,7 +28,6 @@ function resetClock() {
     stopClock();
     stopwatch.innerText = "00:00";
     time = 0;
-    
 }
 
 function getTimeFormatString() {
@@ -47,9 +46,35 @@ function recordLapTime() {
 
 function updateLapTimes() {
     lapTimes.innerHTML = '';
-    lapRecords.forEach(lap => {
+
+    lapRecords.forEach((lap, index) => {
         const li = document.createElement('li');
         li.innerText = lap;
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = index;
+
+        li.prepend(checkbox);
         lapTimes.appendChild(li);
     });
 }
+
+function deleteSelectedLaps() {
+    const checkboxes = lapTimes.querySelectorAll('input[type="checkbox"]');
+    const indicesToDelete = [];
+
+    checkboxes.forEach((checkbox, index) => {
+        if (checkbox.checked) {
+            indicesToDelete.push(index);
+        }
+    });
+
+    // 인덱스를 역순으로 삭제하여 삭제 시 인덱스 문제 방지
+    indicesToDelete.reverse().forEach(index => {
+        lapRecords.splice(index, 1);
+    });
+
+    updateLapTimes();
+}
+
