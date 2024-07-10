@@ -1,4 +1,4 @@
-#!/Users/daye/Documents/piro/djangogirs/myvenv/bin/python3
+#!/Users/daye/Documents/piro/djangogirs/myvenv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
