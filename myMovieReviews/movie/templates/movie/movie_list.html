@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review List</title>
+</head>
+<body>
+    <h1>My Movie Reviews</h1>
+    <a href="{% url 'movie_new' %}">리뷰 작성</a>
+    <ul>
+        {% for movie in reviews %}
+            <li>
+                <a href="{% url 'movie_detail' movie.pk %}">{{ movie.title }}</a> - {{ movie.release_year }} - {{ movie.genre }} - {{ movie.rating }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
