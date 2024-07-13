@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review List</title>
+    <link rel="stylesheet" href="movie.css">
 </head>
 <body>
-    <h1>My Movie Reviews</h1>
-    <a href="{% url 'movie_new' %}">리뷰 작성</a>
+    <header>
+        <h1>my <span class="highlight">Movie</span> reviews</h1>
+        <a href="{% url 'movie_new' %}" class="add-review">Add a New review</a>
     <ul>
-        {% for movie in reviews %}
-            <li>
-                <a href="{% url 'movie_detail' movie.pk %}">{{ movie.title }}</a> - {{ movie.release_year }} - {{ movie.genre }} - {{ movie.rating }}
-            </li>
+        {% for movie in movies %}
+            <div class= "card">
+                <li>
+                    <a href="{% url 'movie_detail' movie.pk %}">{{ movie.title }}</a>
+                    <p>개봉년도: {{ movie.release_year }}</p>
+                    <p>장르 : {{ movie.genre }}</p>
+                    <p>별점 : {{ movie.rating }}</p>
+                </li>
+            </div>
         {% endfor %}
     </ul>
 </body>

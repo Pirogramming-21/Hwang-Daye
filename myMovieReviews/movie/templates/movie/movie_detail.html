@@ -14,7 +14,7 @@
     <p>러닝타임: {{ movie.running_time }}분</p>
     <p>리뷰 내용: {{ movie.review_text }}</p>
     <a href="{% url 'movie_list' %}">My Movie Reviews</a>
-    <a href="{% url 'movie_edit' review.pk %}">수정</a>
-    <a href="{% url 'movie_delete' review.pk %}">삭제</a>
+    <a href="{% url 'movie_edit' movie.pk %}">수정</a>
+    <a href="{% url 'movie_delete' movie.pk %}">삭제</a>
 </body>
-</html>s
+</html>

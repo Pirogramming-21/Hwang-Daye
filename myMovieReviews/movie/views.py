@@ -5,11 +5,11 @@ from .forms import MovieForm
 
 def movie_list(request):
     movies = Movie.objects.all()
-    return render(request, 'reviews/review_list.html', {'movies': movies})
+    return render(request, 'movie/movie_list.html',{'movies': movies})
 
 def movie_detail(request, pk):
-    review = get_object_or_404(Movie, pk=pk)
-    return render(request, 'reviews/review_detail.html', {'movie': movie})
+    movie = get_object_or_404(Movie, pk=pk)
+    return render(request, 'movie/movie_detail.html', {'movie': movie})
 
 def movie_new(request):
     if request.method == "POST":
@@ -17,10 +17,10 @@ def movie_new(request):
         if form.is_valid():
             movie = form.save(commit=False)
             movie.save()
-            return redirect('movie_detail', pk=movie.pk)
+            return redirect('movie_list')
     else:
         form = MovieForm()
-    return render(request, 'movies/movie_edit.html', {'form': form})
+    return render(request, 'movie/movie_edit.html', {'form': form})
 
 def movie_edit(request, pk):
     movie = get_object_or_404(Movie, pk=pk)
@@ -32,7 +32,7 @@ def movie_edit(request, pk):
             return redirect('movie_detail', pk=movie.pk)
     else:
         form = MovieForm(instance=movie)
-    return render(request, 'movies/movie_edit.html', {'form': form})
+    return render(request, 'movie/movie_edit.html', {'form': form})
 
 def movie_delete(request, pk):
     movie = get_object_or_404(Movie, pk=pk)
