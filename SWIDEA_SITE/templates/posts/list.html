@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="idea-list-container">
+    <h2>Idea List</h2>
+    <p>마음에 드는 아이디어를 일지에 많이 기록해보세요</p>
+    <div class="sorting">
+        <label for="sorting">정렬기준:</label>
+        <select id="sorting">
+            <option value="default">--정렬기준--</option>
+            <option value="popularity">찜하기순</option>
+            <option value="registration">등록순</option>
+            <option value="recent">최신순</option>
+            <option value="name">이름순</option>
+        </select>
+    </div>
+    <div class="idea-list">
+        {% for post in posts %}
+        <div class="idea-card">
+            <a href="{% url 'posts:detail' post.pk %}">
+                {% if post.photo and post.photo.url %}
+                    <img src="{{ post.photo.url }}" alt="대체텍스트">
+                {% else %}
+                    <img src="{% static 'posts/image/no_img.png' %}" alt="No Image">
+                {% endif %}
+                <div class="info">
+                    <h3 class="title">{{ post.title }}</h3>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

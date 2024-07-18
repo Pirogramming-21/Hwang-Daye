@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Idea Detail Update</title>
+</head>
+<body>
+    <h1>Idea Detail Update</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">수정</button>
+    </form>
+    <a href="{% url 'posts:detail' post.pk %}">취소</a>
+</body>
+</html>

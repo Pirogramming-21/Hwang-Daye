@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }} - 상세 페이지</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>아이디어 디테일 페이지</h1>
+        </div>
+        <div class="idea-detail">
+            <div class="icons">
+                {% if post.photo %}
+                    <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+                {% else %}
+                    <p>이미지가 없습니다</p>
+                {% endif %}
+            </div>
+            <h2>{{ post.title }}</h2>
+            <p><strong>1) 아이디어 관심도:</strong> {{ post.inter }}</p>
+            <p><strong>2) 예상 개발 툴:</strong> {{ post.tool }}</p>
+            <p><strong>3) 아이디어 설명:</strong> {{ post.detail }}</p>
+        </div>
+        <div class="buttons">
+            <form method="post" action="{% url 'posts:delete' post.pk %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete">삭제</button>
+            </form>
+            <button class="list" onclick="window.location.href='{% url 'posts:list' %}'">목록</button>
+            <button class="edit" onclick="window.location.href='{% url 'posts:update' post.pk %}'">수정</button>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
