@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:8000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile</title>
+    <link rel="stylesheet" href="./Instagram Profile_files/styles.css">
+
+</head>
+<body>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="./Instagram Profile_files/default_profile.png" alt="...">
+            <div class="profile-info">
+                <h1 class="username">PIRO</h1>
+                <p class="bio">This is a Pirostargram!!</p>
+                <div class="btn btn-primary post__add"> <a href="http://127.0.0.1:8000/new/">게시글 추가</a></div>
+            </div>
+        </div>
+        <h1>게시글</h1>
+        <div class="gallery">
+            
+                <div class="gallery-item fixed-size post-id-1">
+                    <a href="http://127.0.0.1:8000/1/">
+                        
+                            <img src="./Instagram Profile_files/post1.jpg" alt="Default Image">
+                        
+                        <p>아자 아자 열심히 ~!</p>
+                    </a>
+                    <div class="btn btn-primary post__add"><a href="http://127.0.0.1:8000/1/">comment</a></div>
+                    <div class="btn btn-primary post__like" onclick="onClickLike(1, &#39;like&#39;)">Like 16</div>
+                </div>
+            
+                <div class="gallery-item fixed-size post-id-2">
+                    <a href="http://127.0.0.1:8000/2/">
+                        
+                            <img src="./Instagram Profile_files/IMG_7039.jpg" alt="Post Image">
+                        
+                        <p>첫 게시글</p>
+                    </a>
+                    <div class="btn btn-primary post__add"><a href="http://127.0.0.1:8000/2/">comment</a></div>
+                    <div class="btn btn-primary post__like" onclick="onClickLike(2, &#39;like&#39;)">Like 14</div>
+                </div>
+            
+                <div class="gallery-item fixed-size post-id-3">
+                    <a href="http://127.0.0.1:8000/3/">
+                        
+                            <img src="./Instagram Profile_files/IMG_7039_qlGWM1Y.jpg" alt="Post Image">
+                        
+                        <p>첫게시글</p>
+                    </a>
+                    <div class="btn btn-primary post__add"><a href="http://127.0.0.1:8000/3/">comment</a></div>
+                    <div class="btn btn-primary post__like" onclick="onClickLike(3, &#39;like&#39;)">Like 5</div>
+                </div>
+            
+                <div class="gallery-item fixed-size post-id-4">
+                    <a href="http://127.0.0.1:8000/4/">
+                        
+                            <img src="./Instagram Profile_files/hero-img.gif" alt="Post Image">
+                        
+                        <p>오잉</p>
+                    </a>
+                    <div class="btn btn-primary post__add"><a href="http://127.0.0.1:8000/4/">comment</a></div>
+                    <div class="btn btn-primary post__like" onclick="onClickLike(4, &#39;like&#39;)">Like 2</div>
+                </div>
+            
+        </div>
+    </div>
+
+    <script src="./Instagram Profile_files/axios.min.js"></script>
+
+<script>
+    const onClickLike = async(id, type) => {
+        const url = "/like_ajax/";
+        const { data } = await axios.post(url, {
+            id,
+            type,
+        });
+        likeHandResponse(data.id, data.type);
+
+    }
+
+    const likeHandResponse = (id, type) => {
+        const element = document.querySelector(`.post-id-${id} .post__${type}`);
+        const originHTML = element.innerHTML;
+        const [buttonType, num] = originHTML.split(" ");
+        const count = Number(num) + 1;
+
+        element.innerHTML = `${buttonType} ${count}`;
+    }
+</script>
+
+
+
+</body></html>

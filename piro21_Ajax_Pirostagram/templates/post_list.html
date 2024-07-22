@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+{% block content %}
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="{% static 'img/default_profile.png' %}" alt="...">
+            <div class="profile-info">
+                <h1 class="username">PIRO</h1>
+                <p class="bio">This is a Pirostargram!!</p>
+                <div class = "btn btn-primary post__add"> <a href="{% url 'posts:post_new' %}">게시글 추가</a></div>
+            </div>
+        </div>
+        <h1>게시글</h1>
+        <div class="gallery">
+            {% for post in posts %}
+                <div class="gallery-item fixed-size post-id-{{ post.id }}">
+                    <a href="{% url 'posts:post_detail' post.pk %}">
+                        {% if post.photo %}
+                            <img src="{{ post.photo.url }}" alt="Post Image">
+                        {% else %}
+                            <img src="{% static 'img/post1.jpg' %}" alt="Default Image">
+                        {% endif %}
+                        <p>{{ post.content }}</p>
+                    </a>
+                    <div class="btn btn-primary post__add"><a href="{% url 'posts:post_detail' post.pk %}">comment</a></div>
+                    <div class="btn btn-primary post__like" onclick = "onClickLike({{ post.id }}, 'like')">Like {{ post.like }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% block extra %}
+<script>
+    const onClickLike = async(id, type) => {
+        const url = "/like_ajax/";
+        const { data } = await axios.post(url, {
+            id,
+            type,
+        });
+        likeHandResponse(data.id, data.type);
+
+    }
+
+    const likeHandResponse = (id, type) => {
+        const element = document.querySelector(`.post-id-${id} .post__${type}`);
+        const originHTML = element.innerHTML;
+        const [buttonType, num] = originHTML.split(" ");
+        const count = Number(num) + 1;
+
+        element.innerHTML = `${buttonType} ${count}`;
+    }
+</script>
+{% endblock %}
+</body>
+</html>

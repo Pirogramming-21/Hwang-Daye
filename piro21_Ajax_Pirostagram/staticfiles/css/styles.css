@@ -1,0 +1,57 @@
+/* profile/static/profile/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    max-width: 935px;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #dbdbdb;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.username {
+    font-size: 28px;
+    margin: 0;
+}
+
+.bio {
+    color: #8e8e8e;
+    margin-top: 10px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    width: calc(33.333% - 10px);
+    margin: 5px;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+}
